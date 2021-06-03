@@ -48,9 +48,11 @@ function deleted(itemIndex){
     update();
 }
 function clearstorage(){
-    if(confirm("Do you really want to clear your TODO list?")==true){
+    if(confirm("Do you really want to clear your TODO list?")){
         console.log("Check");
         localStorage.clear();
+        itemJsonArray = [];
+        localStorage.setItem('itemsJson',JSON.stringify(itemJsonArray))
         update();
     }
 }
