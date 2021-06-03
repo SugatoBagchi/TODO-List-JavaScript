@@ -32,7 +32,7 @@ function update(){
         <th scope="row">${index+1}</th>
         <td>${element[0]}</td>
         <td>${element[1]}</td>
-        <td><button class="btn btn-sm btn-primary = onclick="deleted(${index})">Delete</button></td>
+        <td><button class="btn btn-sm btn-primary" onclick="deleted(${index})">Delete</button></td>
     </tr>`;
     });
     tableBody.innerHTML=str;
@@ -48,8 +48,9 @@ function deleted(itemIndex){
     update();
 }
 function clearstorage(){
-    if(confirm("Do you really want to clear your TODO list?")){
-    localStorage.clear();
-    update();
+    if(confirm("Do you really want to clear your TODO list?")==true){
+        console.log("Check");
+        localStorage.clear();
+        update();
     }
 }
