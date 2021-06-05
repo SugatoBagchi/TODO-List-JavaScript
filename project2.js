@@ -16,6 +16,8 @@ function getAndUpdate(){
     update()
 }
 function update(){
+    document.getElementById('title').value='';
+    document.getElementById('description').value='';
     if(localStorage.getItem('itemsJson')==null){
         localStorage.setItem('itemsJson',JSON.stringify(itemJsonArray))
     }
