@@ -2,18 +2,24 @@ function getAndUpdate(){
     tit=document.getElementById('title').value;
     desc = document.getElementById('description').value;
     console.log("Adding to the list.....")
-    if(localStorage.getItem('itemsJson')==null){
+    if(tit == "")
+        alert("Title cannot be blank!")
+    else if(desc == "")
+        alert("Description cannot be blank!")
+    else if(localStorage.getItem('itemsJson')==null){
         itemJsonArray = [];
         itemJsonArray.push([tit,desc]);
         localStorage.setItem('itemsJson',JSON.stringify(itemJsonArray))
+        update()
     }
     else{
         itemJsonArrayStr = localStorage.getItem('itemsJson')
         itemJsonArray = JSON.parse(itemJsonArrayStr);
         itemJsonArray.push([tit,desc]);
         localStorage.setItem('itemsJson',JSON.stringify(itemJsonArray))
+        update()
     }
-    update()
+    
 }
 function update(){
     document.getElementById('title').value='';
